@@ -3,23 +3,29 @@
 if [ ! -d ~/.oh-my-zsh ]; then
     echo "~/.oh-my-zsh does not exist."
 
-    sudo apt install zsh -y
-    # Prompt to install oh my zsh
-    # Install Oh My Zsh
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    read -p "Do you want to install oh my zsh? (y/N): " response
 
-    # Prompt to install my config
-    # Plugins
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    # Check user response
+    if [[ "$response" =~ ^[Yy]$ ]]; then
 
-    # This requires input
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install
+        sudo apt install zsh -y
+        # Prompt to install oh my zsh
+        # Install Oh My Zsh
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-    cp ../zshrc ~/.zshrc
+        # Prompt to install my config
+        # Plugins
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+        git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-    sudo apt-get install fonts-powerline
+        # This requires input
+        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+        ~/.fzf/install
+
+        cp ../zshrc ~/.zshrc
+
+        sudo apt-get install fonts-powerline
+    fi
 else
     echo "~/.oh-my-zsh exists."
 fi

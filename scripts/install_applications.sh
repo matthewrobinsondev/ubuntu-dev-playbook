@@ -1,6 +1,10 @@
 #!/bin/bash
 
-install_recommended_apps() {
+# Prompt the user to install recommended applications
+read -p "Do you want to install the recommended applications using snap? (y/N): " response
+
+# Check user response
+if [[ "$response" =~ ^[Yy]$ ]]; then
     echo "Installing recommended applications using snap..."
 
     # Install VS Code
@@ -29,14 +33,6 @@ install_recommended_apps() {
 
     # Install Chromium
     sudo snap install chromium
-}
-
-# Prompt the user to install recommended applications
-read -p "Do you want to install the recommended applications using snap? (yes/no): " response
-
-# Check user response
-if [[ "$response" =~ ^[Yy][Ee][Ss]$ ]]; then
-    install_recommended_apps
 else
     echo "Continuing without installing recommended applications."
 fi

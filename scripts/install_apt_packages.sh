@@ -30,3 +30,9 @@ sudo apt install tmux -y
 
 # Install Neofetch
 sudo apt install neofetch -y
+
+# Install npm
+sudo apt install npm -y
+
+# Install bun (its not an apt package yet sue me)
+curl -fsSL https://bun.sh/install | bash

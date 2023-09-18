@@ -33,6 +33,9 @@ if [[ "$response" =~ ^[Yy]$ ]]; then
 
     # Install Chromium
     sudo snap install chromium
+
+    # Install Spotify
+    sudo snap install spotify
 else
     echo "Continuing without installing recommended applications."
 fi

@@ -5,13 +5,6 @@ if command -v docker &> /dev/null; then
 else
     echo "Installing Docker"
 
-    # Install Docker
-    sudo apt install docker
-    sudo groupadd docker
-    sudo usermod -aG docker $USER
-    sudo systemctl enable docker.service
-    sudo systemctl enable containerd.service
-
     # Add Docker's official GPG key:
     sudo apt-get update
     sudo apt-get install ca-certificates curl gnupg
@@ -25,7 +18,11 @@ else
     "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
     sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     sudo apt-get update
+    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-    # Install Docker Compose v2
-    sudo apt-get install docker-compose-plugin
+    # Manage Docker as a non-root user:
+    sudo groupadd docker
+    sudo usermod -aG docker $USER
+    sudo systemctl enable docker.service
+    sudo systemctl enable containerd.service
 fi

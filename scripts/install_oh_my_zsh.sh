@@ -11,7 +11,7 @@ if [ ! -d ~/.oh-my-zsh ]; then
         sudo apt install zsh -y
         # Prompt to install oh my zsh
         # Install Oh My Zsh
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -y
 
         # Prompt to install my config
         # Plugins

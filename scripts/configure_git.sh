@@ -7,7 +7,7 @@ read -p "Do you want to configure global git?(y/N): " response
 # Check user response
 if [[ "$response" =~ ^[Yy]$ ]]; then
     # Prompt the user for their name
-    read -p "Enter your Git username: " git_username
+    read -p "Enter your Git name: " git_username
 
     # Prompt the user for their email
     read -p "Enter your Git email: " git_email

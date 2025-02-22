@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # Prompt the user to install recommended applications
 read -p "Do you want to set custom gnome hotkeys? (y/N): " response
 
@@ -44,11 +43,4 @@ if [[ "$response" =~ ^[Yy]$ ]]; then
 
     gsettings set org.gnome.desktop.wm.keybindings close "['<Super>q']"
     gsettings set org.gnome.desktop.wm.keybindings toggle-fullscreen "['<Super>f']"
-
-
-    # TODO: Add Custom shortcuts
-    # Add for alacritty
-    # Add for PHPStorm
-    # Add for dbeaver
-    # Add for teams
 fi

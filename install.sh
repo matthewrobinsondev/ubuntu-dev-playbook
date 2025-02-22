@@ -6,23 +6,29 @@ set -e
 sudo apt update
 sudo apt upgrade -y
 
-# Install Apt packages I frequently use
+# Install Apt packages & apps
 ./scripts/install_apt_packages.sh
+./scripts/install_go.sh
+./scripts/install_applications.sh
 
-# Install oh my zsh
-./scripts/install_oh_my_zsh.sh
+# Install Fonts, takes a hot min
+./scripts/install_fonts.sh
 
 # Install Docker
 ./scripts/install_docker.sh
 
-# Install Applications
-./scripts/install_applications.sh
-
-# Install Config
-sudo cp -R dotconfigs/* ~/.config/
-
-# Install Hotkeys
+# Set custom gnome hotkeys
 ./scripts/set_custom_hotkeys.sh
 
-# Configure Git
+# Create git config, could create ssh key
 ./scripts/configure_git.sh
+
+# Pull down dotfiles
+git clone https://github.com/matthewrobinsondev/dotfiles.git $HOME/dotfiles
+cd $HOME/dotfiles && stow .
+
+# use zsh
+chsh -s $(which zsh)
+
+# cleanup anybits
+sudo apt autoremove

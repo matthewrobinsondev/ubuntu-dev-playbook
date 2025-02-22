@@ -19,4 +19,9 @@ if [[ "$response" =~ ^[Yy]$ ]]; then
     echo "Git configuration has been set:"
     echo "Git username: $git_username"
     echo "Git email: $git_email"
+
+    ssh-keygen -t ed25519 -C "$git_email"
+    ssh-add ~/.ssh/id_ed25519
+
+    cat ~/.ssh/id_ed25519.pub
 fi

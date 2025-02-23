@@ -17,6 +17,9 @@ sudo apt upgrade -y
 # Install Docker
 ./scripts/install_docker.sh
 
+# Install composer
+./scripts/install_composer.sh
+
 # Set custom gnome hotkeys
 ./scripts/set_custom_hotkeys.sh
 
